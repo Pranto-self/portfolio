@@ -176,7 +176,7 @@ export default function App() {
         <div className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center transition-all duration-700 px-6 max-w-2xl mx-auto
           ${activeTab === 'Contact' ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-4 scale-95 pointer-events-none'}`}>
           <h2 className="font-anton text-4xl uppercase mb-4 tracking-wider">Get In Touch</h2>
-          <p className="text-sm md:text-base mb-6 opacity-80">Let's work together on your next high-end platform layout structure.</p>
+          <p className="text-sm md:text-base mb-6 opacity-80">Let's connect.</p>
           <a href="mailto:sabbiralom.pranto@gmail.com" className={`px-8 py-3 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:scale-105 border ${
             isDarkMode ? 'border-white bg-white text-black hover:bg-black hover:text-white' : 'border-black bg-black text-white hover:bg-white hover:text-black'
           }`}>
@@ -197,7 +197,7 @@ export default function App() {
         </div>
         <div className="font-medium tracking-widest text-center sm:text-right">
           <span>Presented By: </span>
-          <span className="font-bold underline underline-offset-4">Sabbir Alom</span>
+          <span className="font-bold underline underline-offset-4">Sabbir Alom Pranto</span>
         </div>
       </footer>
 
