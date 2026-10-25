@@ -11,18 +11,17 @@ export default function App() {
   };
 
   const navLinks = [
-  { name: 'Home', id: 'Home' },
-  { name: 'About', id: 'About' },
-  { name: 'Education', id: 'Education' },
-  { name: 'Contact', id: 'Contact' },
-];
-
+    { name: 'Home', id: 'Home' },
+    { name: 'About', id: 'About' },
+    { name: 'Education', id: 'Education' },
+    { name: 'Contact', id: 'Contact' },
+  ];
 
   const socialLinks = [
     { icon: 'fa-brands fa-facebook-f', href: 'https://www.facebook.com/sabbir.a.pranto', label: 'Facebook' },
     { icon: 'fa-brands fa-instagram', href: 'https://www.instagram.com/p_r_a_n.t_o?xtok=aWMxbzU4Zjdla3Zt', label: 'Instagram' },
     { icon: 'fa-brands fa-whatsapp', href: 'https://wa.me/+8801601332917', label: 'WhatsApp' },
-    { icon: 'fa-brands fa-linkedin-in', href: 'https://www.linkedin.com/in/sabbir-a-pranto?utm_source=share_via&utm_content=profile&utm_medium=member_android', label: 'LinkedIn' },
+    { icon: 'fa-brands fa-x', href: 'https://x.com/P_R_A_N_TO', label: 'X' },
   ];
 
   return (
@@ -37,7 +36,7 @@ export default function App() {
       <div className={`absolute z-50 pointer-events-none transition-all ease-in-out duration-700 overflow-hidden
         ${activeTab === 'Home' 
           ? 'bottom-0 left-1/2 -translate-x-1/2 w-[135vw] sm:w-[110vw] h-[55vh] md:w-full md:h-[82vh] lg:h-[85vh] md:left-0 md:translate-x-0 rounded-none' 
-          : 'top-5 left-6 md:left-12 w-12 h-12 rounded-full border-2 border-current shadow-lg translate-x-0 translate-y-0'
+          : 'top-7 left-20 sm:left-24 md:left-12 w-12 h-12 rounded-full border-2 border-current shadow-lg translate-x-0 translate-y-0'
         }`}
       >
         <img
@@ -53,22 +52,27 @@ export default function App() {
 
       {/* HEADER / NAVIGATION */}
       <header className="w-full px-6 py-6 md:px-12 md:py-8 flex items-center justify-between z-40 relative">
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 text-2xl focus:outline-none transition-transform active:scale-95"
-          aria-label="Toggle menu"
-        >
-          <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars-staggered'}`}></i>
-        </button>
+        
+        {/* Left Side: Mobile Menu Button & Brand Logo separated clearly */}
+        <div className="flex items-center gap-6">
+          {/* Menu Button - Explicitly visible with high z-index */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 text-2xl focus:outline-none transition-transform active:scale-95 z-50 relative cursor-pointer"
+            aria-label="Toggle menu"
+          >
+            <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars-staggered'}`}></i>
+          </button>
 
-        {/* Brand Logo Text */}
-        <button 
-          onClick={() => setActiveTab('Home')}
-          className={`font-monoton text-2xl md:text-3xl tracking-wider uppercase hover:opacity-80 transition-all duration-700 text-left
-            ${activeTab === 'Home' ? 'pl-0' : 'pl-16'}`}
-        >
-          PRANTO
-        </button>
+          {/* Brand Logo Text */}
+          <button 
+            onClick={() => setActiveTab('Home')}
+            className={`font-monoton text-2xl md:text-3xl tracking-wider items-center uppercase hover:opacity-80 transition-all duration-700 text-center ml-20
+              ${activeTab === 'Home' ? 'pl-0' : 'pl-4 md:pl-16'}`}
+          >
+            PRANTO
+          </button>
+        </div>
 
         {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center gap-10 text-sm font-semibold tracking-widest uppercase">
@@ -138,39 +142,39 @@ export default function App() {
           ${activeTab === 'About' ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-4 scale-95 pointer-events-none'}`}>
           <h1 className="font-anton text-4xl uppercase mb-4 tracking-wider">About Me</h1>
           <p className="text-sm md:text-base leading-relaxed opacity-80">
-                <h1 className="font-anton text-4xl mb-4 tracking-wider"> Hi, I'm SABBIR ALOM PRANTO</h1>
-                "Welcome to my corner of the internet! My path hasn't been a straight line, 
-                and honestly, I've never been someone who fit neatly into just one box. For a long time, I wondered where my exact 'niche' was, 
-                only to realize that my true strength lies in my curiosity and adaptability. This website is the result of a continuous journey of learning, 
-                experimenting, and refusing to stand still. I'm driven by a passion to explore new ideas, master new skills from the ground up, and see where dedication can take me. I may not have started with all the answers, but I've built a foundation on hard work, a fresh perspective, and an eagerness to grow every single day—and 
-                the best chapters are still being written."
-              </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+            <span className="block font-anton text-xl mb-4 tracking-wider">Hi, I'm SABBIR ALOM PRANTO</span>
+            "Welcome to my corner of the internet! My path hasn't been a straight line, 
+            and honestly, I've never been someone who fit neatly into just one box. For a long time, I wondered where my exact 'niche' was, 
+            only to realize that my true strength lies in my curiosity and adaptability. This website is the result of a continuous journey of learning, 
+            experimenting, and refusing to stand still. I'm driven by a passion to explore new ideas, master new skills from the ground up, and see where dedication can take me. I may not have started with all the answers, but I've built a foundation on hard work, a fresh perspective, and an eagerness to grow every single day—and 
+            the best chapters are still being written."
           </p>
         </div>
 
         {/* TAB LAYER D: Education SCREEN */}
-      <div className={`absolute inset-0 w-full h-full flex flex-col items-center text-left transition-all duration-700 px-6 max-w-2xl mx-auto 
-        ${activeTab === 'Education' ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}`}>
+        <div className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center text-left transition-all duration-700 px-6 max-w-2xl mx-auto 
+          ${activeTab === 'Education' ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}`}>
   
-         <h2 className="font-anton text-4xl uppercase mb-4 tracking-wider">My Education</h2>
-         <p className="text-sm md:text-base opacity-80">
-          <h4 className="text-xl text-left uppercase justify-left">Degree: Master of Science (M.Sc.)</h4>
-          <h4 className="text-xl text-left justify-left underline underline-offset-4">Institution: <a href="https://www.nu.ac.bd/" target="_blank" rel="noopener noreferrer">National University</a></h4>
-          Year: 2022 
-          <h4 className="text-xl text-left uppercase mt-4 justify-left">Degree: bachelor of Science (B.Sc.)</h4>
-          <h4 className="text-xl text-left justify-left underline underline-offset-4">Institution: <a href="https://www.nu.ac.bd/" target="_blank" rel="noopener noreferrer">National University</a></h4>
-           Year: 2021 
-          <h4 className="text-xl text-left uppercase mt-4 tracking-wider justify-left">Degree: Higher Secondary Certificate (HSC)</h4>
-          <h4 className="text-xl text-left justify-leftunderline underline underline-offset-4">Institution: <a href="https://armc.edu.bd/" target="_blank" rel="noopener noreferrer">Advanced Residential Model College</a></h4>
-           Year: 2017
-          <h4 className="text-xl text-left uppercase mt-4 tracking-wider justify-left">Degree: Secondary School Certificate (S.s.c)</h4>
-          <h4 className="text-xl text-left justify-left underline underline-offset-4">Institution: <a href="https://naklagovtpilothighschool.edu.bd/" target="_blank" rel="noopener noreferrer">Nakla Govt. Pilot High School</a></h4>
-          Year: 2015
-         </p>
-
+          <h2 className="font-anton text-4xl uppercase mb-4 tracking-wider text-center w-full">My Education</h2>
+          <div className="text-sm md:text-base opacity-85 space-y-3 w-full">
+            <div>
+              <h4 className="text-lg font-bold uppercase">Degree: Master of Science (M.Sc.)</h4>
+              <p>Institution: <a href="https://www.nu.ac.bd/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-blue-400">National University</a> | Year: 2022</p>
             </div>
-
+            <div>
+              <h4 className="text-lg font-bold uppercase">Degree: Bachelor of Science (B.Sc.)</h4>
+              <p>Institution: <a href="https://www.nu.ac.bd/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-blue-400">National University</a> | Year: 2021</p>
+            </div>
+            <div>
+              <h4 className="text-lg font-bold uppercase">Degree: Higher Secondary Certificate (HSC)</h4>
+              <p>Institution: <a href="https://armc.edu.bd/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-blue-400">Advanced Residential Model College</a> | Year: 2017</p>
+            </div>
+            <div>
+              <h4 className="text-lg font-bold uppercase">Degree: Secondary School Certificate (SSC)</h4>
+              <p>Institution: <a href="https://naklagovtpilothighschool.edu.bd/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 text-blue-400">Nakla Govt. Pilot High School</a> | Year: 2015</p>
+            </div>
+          </div>
+        </div>
 
         {/* TAB LAYER C: CONTACT SCREEN DISPLAY */}
         <div className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center transition-all duration-700 px-6 max-w-2xl mx-auto
